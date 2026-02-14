@@ -1,25 +1,8 @@
-from setuptools import find_packages, setup
-
-def get_requirements(file_path):
-    """
-    This function will return the list of requirements
-    """
-    requirements = []
-    with open(file_path) as file:
-        requirements = file.readlines()
-        requirements = [req.replace("\n", "") for req in requirements]
-
-        if "-e ." in requirements:
-            requirements.remove("-e .")
-
-    return requirements
-
+from setuptools import setup, find_packages # pyright: ignore[reportMissingModuleSource]
 
 setup(
     name="mlproject",
     version="0.0.1",
     author="Tharun",
-    author_email="tharun@email.com",
-    packages=find_packages(),
-    install_requires=get_requirements("requirements.txt"),
+    packages=find_packages()
 )
